@@ -1,0 +1,27 @@
+## Ignore Visual Studio & .NET Build Files
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Ignore Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.*
+
+## Ignore Python Artifacts (From our previous scripts)
+__pycache__/
+*.py[cod]
+*.spec
+.venv/
+venv/
+env/
+
+## Ignore Output Data & Logs
+debug_output/
+*.log
+# roster_data.json  <-- Uncomment this if you DON'T want to commit the extracted data
