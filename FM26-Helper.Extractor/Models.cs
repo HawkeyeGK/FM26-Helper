@@ -21,7 +21,7 @@ namespace FM26_Helper.Extractor
         public int Age { get; set; }
         public int TransferValueLow { get; set; }
         public int TransferValueHigh { get; set; }
-        public int Wage { get; set; }
+        public string Wage { get; set; }
         public string ContractExpiry { get; set; }
         
         public TechnicalAttributes Technical { get; set; }
