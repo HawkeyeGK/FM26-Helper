@@ -1,0 +1,54 @@
+﻿@page "/"
+@using FM26_Helper.Shared
+@inject RosterRepository Repository
+@inject IConfiguration Configuration
+
+<PageTitle>Player Roster</PageTitle>
+
+<h1>Player Roster</h1>
+
+@if (players == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Wage</th>
+                <th>Playing Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in players)
+            {
+                <tr>
+                    <td>@player.PlayerName</td>
+                    <td>@player.Snapshot?.Age</td>
+                    <td>@player.Snapshot?.Wage</td>
+                    <td>@player.Snapshot?.PlayingTime</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<PlayerImportData>? players;
+
+    protected override void OnInitialized()
+    {
+        var path = Configuration["RosterFilePath"];
+        if (!string.IsNullOrEmpty(path))
+        {
+            players = Repository.Load(path);
+        }
+        else
+        {
+            players = new List<PlayerImportData>();
+        }
+    }
+}

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM26-Helper.Tests", "FM26-H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM26-Helper.Shared", "FM26-Helper.Shared\FM26-Helper.Shared.csproj", "{B8309985-8D7E-4776-8B4C-7CD01ACD1B92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM26-Helper.Web", "FM26-Helper.Web\FM26-Helper.Web.csproj", "{F008B820-FBB0-4E2B-BA2D-31D7438FBAEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{B8309985-8D7E-4776-8B4C-7CD01ACD1B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8309985-8D7E-4776-8B4C-7CD01ACD1B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8309985-8D7E-4776-8B4C-7CD01ACD1B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F008B820-FBB0-4E2B-BA2D-31D7438FBAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F008B820-FBB0-4E2B-BA2D-31D7438FBAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F008B820-FBB0-4E2B-BA2D-31D7438FBAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F008B820-FBB0-4E2B-BA2D-31D7438FBAEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
