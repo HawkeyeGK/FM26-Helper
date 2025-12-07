@@ -9,5 +9,8 @@ namespace FM26_Helper.Shared
         public double DirectAttack { get; set; }
         public double PossessionAttack { get; set; }
         public double Gegenpress { get; set; }
+
+        public List<RoleFitResult> InPossessionFits { get; set; } = new();
+        public List<RoleFitResult> OutPossessionFits { get; set; } = new();
     }
 }

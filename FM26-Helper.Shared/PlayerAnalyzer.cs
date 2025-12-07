@@ -63,6 +63,10 @@ namespace FM26_Helper.Shared
             double weightedSum = (group1Sum * 2) + (group2Sum * 3);
             analysis.Gegenpress = Math.Round((weightedSum / 560.0) * 100, 1);
 
+            // Calculate Role Fits
+            analysis.InPossessionFits = RoleFitCalculator.Calculate(player, "InPossession");
+            analysis.OutPossessionFits = RoleFitCalculator.Calculate(player, "OutPossession");
+
             return analysis;
         }
 
