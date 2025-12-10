@@ -3,6 +3,15 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+/* Main Layout Fix: Allows flex container to shrink, forcing children to scroll */
+main {
+    /* 1. Allows flex shrinking */
+    min-width: 0;
+
+    /* 2. STRICTLY prevents this container from becoming wider than the viewport */
+    overflow-x: hidden;
+}
+
 a,
 .btn-link {
     color: #006bb7;
@@ -78,4 +87,48 @@ h1:focus {
 /* Optional: Faintly show sort arrows so user knows functionality exists */
 .table .sort-indicator {
     opacity: 0.5;
+}
+
+/* Global Utility: Scrollable container for QuickGrids */
+.grid-scroll-container {
+    /* 'display: grid' creates a stricter formatting context than block */
+    display: grid;
+
+    /* Explicit width is required to force the container to calculate against the parent */
+    width: 100%;
+
+    overflow-x: auto;
+    border: 1px solid #444;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Sticky First Column Logic (Opaque Versions) --- */
+
+/* 1. Base Sticky Behavior */
+.grid-scroll-container table tr>*:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    border-right: 2px solid #444;
+    /* SOLID Color: Slate Dark Gray */
+    background-color: #272b30 !important;
+}
+
+/* 2. Header Specifics (Higher Z-Index) */
+.grid-scroll-container table tr>th:first-child {
+    z-index: 3;
+    background-color: #272b30 !important;
+}
+
+/* 3. Striped Rows (Solid Replacement) */
+/* Visually matches #272b30 + 5% White */
+.grid-scroll-container table.table-striped>tbody>tr:nth-of-type(odd)>*:first-child {
+    background-color: #32353a !important;
+}
+
+/* 4. Hover Rows (Solid Replacement) */
+/* Visually matches #272b30 + 7.5% White */
+.grid-scroll-container table.table-hover>tbody>tr:hover>*:first-child {
+    background-color: #373b40 !important;
 }

@@ -15,17 +15,37 @@
 }
 else
 {
-    <QuickGrid Items="@rosterItems.AsQueryable()" Class="table table-striped table-hover" Pagination="@pagination">
-        <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
-        <PropertyColumn Property="@(p => p.Age)" Sortable="true" />
-        <PropertyColumn Property="@(p => p.Wage)" Sortable="true" />
-        <PropertyColumn Property="@(p => p.ContractExpiry)" Title="Contract" Sortable="true" />
-        <PropertyColumn Property="@(p => p.Speed)" Format="F1" Sortable="true" />
-        <PropertyColumn Property="@(p => p.DNA)" Format="F1" Sortable="true" />
-        <PropertyColumn Property="@(p => p.Gegenpress)" Format="F1" Sortable="true" />
-        <PropertyColumn Property="@(p => p.BestInPossessionRole)" Title="Best Role (In)" Sortable="true" />
-        <PropertyColumn Property="@(p => p.BestOutPossessionRole)" Title="Best Role (Out)" Sortable="true" />
-    </QuickGrid>
+    <div class="grid-scroll-container">
+        <QuickGrid Items="@rosterItems.AsQueryable()" Class="table table-striped table-hover" Pagination="@pagination">
+            <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Age)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Wage)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.ContractExpiry)" Title="Contract" Sortable="true" />
+            
+            @* Physical *@
+            <PropertyColumn Property="@(p => p.Pace)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Acceleration)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Stamina)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Strength)" Sortable="true" />
+
+            @* Technical *@
+            <PropertyColumn Property="@(p => p.Finishing)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Dribbling)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Passing)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Technique)" Sortable="true" />
+
+            @* Mental *@
+            <PropertyColumn Property="@(p => p.Composure)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Decisions)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Vision)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.WorkRate)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Speed)" Format="F1" Sortable="true" />
+            <PropertyColumn Property="@(p => p.DNA)" Format="F1" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Gegenpress)" Format="F1" Sortable="true" />
+            <PropertyColumn Property="@(p => p.BestInPossessionRole)" Title="Best Role (In)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.BestOutPossessionRole)" Title="Best Role (Out)" Sortable="true" />
+        </QuickGrid>
+    </div>
     <Paginator State="@pagination" />
 }
 
@@ -59,7 +79,25 @@ else
                     BestInPossessionRole = bestIn?.RoleName ?? "N/A",
                     BestInPossessionScore = bestIn?.Score ?? 0,
                     BestOutPossessionRole = bestOut?.RoleName ?? "N/A",
-                    BestOutPossessionScore = bestOut?.Score ?? 0
+                    BestOutPossessionScore = bestOut?.Score ?? 0,
+
+                    // Physical
+                    Pace = player.Snapshot?.Physical?.Pace ?? 0,
+                    Acceleration = player.Snapshot?.Physical?.Acceleration ?? 0,
+                    Stamina = player.Snapshot?.Physical?.Stamina ?? 0,
+                    Strength = player.Snapshot?.Physical?.Strength ?? 0,
+
+                    // Technical
+                    Finishing = player.Snapshot?.Technical?.Finishing ?? 0,
+                    Dribbling = player.Snapshot?.Technical?.Dribbling ?? 0,
+                    Passing = player.Snapshot?.Technical?.Passing ?? 0,
+                    Technique = player.Snapshot?.Technical?.Technique ?? 0,
+
+                    // Mental
+                    Composure = player.Snapshot?.Mental?.Composure ?? 0,
+                    Decisions = player.Snapshot?.Mental?.Decisions ?? 0,
+                    Vision = player.Snapshot?.Mental?.Vision ?? 0,
+                    WorkRate = player.Snapshot?.Mental?.WorkRate ?? 0
                 });
             }
         }
