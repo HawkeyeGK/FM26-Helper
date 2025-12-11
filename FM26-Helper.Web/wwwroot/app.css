@@ -144,3 +144,33 @@ h1:focus {
     /* Optional: Center text vertically for a cleaner look */
     vertical-align: middle;
 }
+
+/* --- FM Status Indicators --- */
+/* Tier 1: Elite / Excellent (Bright Green + Bold) */
+.fm-status-elite {
+    font-weight: 800;
+    color: #4ade80;
+}
+
+/* Special: Star Player (Gold + Bold) */
+.fm-status-gold {
+    font-weight: 800;
+    color: #ffd700;
+}
+
+/* Tier 2: Strong / Good (White + Bold) */
+.fm-status-strong {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* Tier 4: Avoid / Warning (Red) */
+.fm-status-warn {
+    color: #ff6b6b;
+}
+
+/* Critical: Expiring / Toxic (Red + Bold) */
+.fm-status-critical {
+    font-weight: 800;
+    color: #ff6b6b;
+}

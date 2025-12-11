@@ -24,12 +24,12 @@ else
             </TemplateColumn>
             <PropertyColumn Property="@(p => p.Age)" Sortable="true" />
             <TemplateColumn Title="Personality" SortBy="@personalitySort">
-                <span style="@GetPersonalityStyle(context.Personality)">
+                <span class="@GetPersonalityClass(context.Personality)">
                     @context.Personality
                 </span>
             </TemplateColumn>
             <TemplateColumn Title="Playing Time" SortBy="@playingTimeSort">
-                <span style="@GetPlayingTimeStyle(context.PlayingTime)">
+                <span class="@GetPlayingTimeClass(context.PlayingTime)">
                     @context.PlayingTime
                 </span>
             </TemplateColumn>
@@ -38,7 +38,7 @@ else
             <PropertyColumn Property="@(p => p.TransferValueHigh)" Title="Max Value" Sortable="true" Format="C0" />
             <PropertyColumn Property="@(p => p.Wage)" Sortable="true" Format="C0" />
             <TemplateColumn Title="Expires" Sortable="true" SortBy="@contractSort">
-                <span style="@GetContractStyle(context.ContractExpiry, context.GameDate)">
+                <span class="@GetContractClass(context.ContractExpiry, context.GameDate)">
                     @context.ContractExpiry
                 </span>
             </TemplateColumn>
@@ -71,29 +71,19 @@ else
     private static readonly GridSort<RosterItemViewModel> personalitySort = 
         GridSort<RosterItemViewModel>.ByAscending(p => ScoutingConstants.GetPersonalityRank(p.Personality));
 
-    private static string GetPersonalityStyle(string personality)
+    private static string GetPersonalityClass(string personality)
     {
         var rank = ScoutingConstants.GetPersonalityRank(personality);
-        
-        // Tier 1 (Rank 1-9): Elite -> Bold & Green
-        if (rank < 10) 
-        {
-            return "font-weight: 800; color: #4ade80;"; // Bright Green (readable on dark bg)
-        }
-        
-        // Tier 2 (Rank 10-19): Strong -> Bold only
-        if (rank >= 10 && rank < 20)
-        {
-            return "font-weight: 800; color: #ffffff;";
-        }
 
-        // Tier 4+ (Rank 40+): Avoid/Toxic -> Red
-        if (rank >= 40) 
-        {
-            return "color: #ff6b6b;"; 
-        }
+        // Tier 1 (Rank 1-9): Elite
+        if (rank < 10) return "fm-status-elite";
         
-        // Tier 3 (Rank 20-39): Acceptable -> Default
+        // Tier 2 (Rank 10-19): Strong
+        if (rank >= 10 && rank < 20) return "fm-status-strong";
+
+        // Tier 4+ (Rank 40+): Avoid/Toxic
+        if (rank >= 40) return "fm-status-warn";
+        
         return "";
     }
 
@@ -128,53 +118,36 @@ else
     private static readonly GridSort<RosterItemViewModel> contractSort = 
         GridSort<RosterItemViewModel>.ByAscending(p => GetContractDate(p.ContractExpiry));
 
-    private static string GetContractStyle(string contractExpiry, DateTime? gameDate)
+    private static string GetContractClass(string contractExpiry, DateTime? gameDate)
     {
         if (string.IsNullOrWhiteSpace(contractExpiry) || gameDate == null) return "";
-
         var contractDate = ParseSmartDate(contractExpiry);
         
         if (contractDate.HasValue)
         {
             var yearsRemaining = contractDate.Value.Year - gameDate.Value.Year;
-
+            
             // Expiring this year (Critical)
-            if (yearsRemaining <= 0) return "font-weight: 800; color: #ff6b6b;"; 
+            if (yearsRemaining <= 0) return "fm-status-critical";
             
             // Expiring next year (Urgent)
-            if (yearsRemaining == 1) return "font-weight: 800; color: #ffffff;";
+            if (yearsRemaining == 1) return "fm-status-strong";
         }
 
         return "";
     }
 
-    private static string GetPlayingTimeStyle(string playingTime)
+    private static string GetPlayingTimeClass(string playingTime)
     {
         if (string.IsNullOrEmpty(playingTime)) return "";
-
-        // Normalize for comparison
         var pt = playingTime.Trim();
 
-        if (pt.Equals("Star Player", StringComparison.OrdinalIgnoreCase))
-        {
-            return "font-weight: 800; color: #ffd700;"; // Gold
-        }
-
-        if (pt.Equals("Important Player", StringComparison.OrdinalIgnoreCase))
-        {
-            return "font-weight: 800; color: #4ade80;"; // Bright Green
-        }
-
-        if (pt.Equals("Regular Starter", StringComparison.OrdinalIgnoreCase))
-        {
-            return "font-weight: 800; color: #ffffff;"; // Bold White
-        }
-
-        // "On Loan" usually indicates a player loaned OUT or IN depending on context
-        if (pt.Contains("Loan", StringComparison.OrdinalIgnoreCase))
-        {
-            return "color: #ff6b6b;"; // Red (Attention needed)
-        }
+        if (pt.Equals("Star Player", StringComparison.OrdinalIgnoreCase)) return "fm-status-gold";
+        if (pt.Equals("Important Player", StringComparison.OrdinalIgnoreCase)) return "fm-status-elite";
+        if (pt.Equals("Regular Starter", StringComparison.OrdinalIgnoreCase)) return "fm-status-strong";
+        
+        // "Loan" usually indicates a player loaned OUT or IN
+        if (pt.Contains("Loan", StringComparison.OrdinalIgnoreCase)) return "fm-status-warn";
 
         return "";
     }
