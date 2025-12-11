@@ -4,30 +4,30 @@ namespace FM26_Helper.Shared
 {
     public class PlayerImportData
     {
-        public string PlayerName { get; set; }
-        public string DateOfBirth { get; set; }
+        public string PlayerName { get; set; } = string.Empty;
+        public string DateOfBirth { get; set; } = string.Empty;
         public int HeightFeet { get; set; }
         public int HeightInches { get; set; }
-        public PlayerSnapshot Snapshot { get; set; }
+        public PlayerSnapshot? Snapshot { get; set; }
     }
 
     public class PlayerSnapshot
     {
-        public string SourceFilename { get; set; }
+        public string SourceFilename { get; set; } = string.Empty;
         public DateTime FileCreationDate { get; set; }
-        public string GameDate { get; set; }
-        public string Personality { get; set; }
-        public string PlayingTime { get; set; }
+        public string GameDate { get; set; } = string.Empty;
+        public string Personality { get; set; } = string.Empty;
+        public string PlayingTime { get; set; } = string.Empty;
         public int Age { get; set; }
         public int TransferValueLow { get; set; }
         public int TransferValueHigh { get; set; }
-        public string Wage { get; set; }
-        public string ContractExpiry { get; set; }
+        public string Wage { get; set; } = string.Empty;
+        public string ContractExpiry { get; set; } = string.Empty;
         
-        public TechnicalAttributes Technical { get; set; }
-        public SetPieceAttributes SetPieces { get; set; }
-        public MentalAttributes Mental { get; set; }
-        public PhysicalAttributes Physical { get; set; }
+        public TechnicalAttributes? Technical { get; set; }
+        public SetPieceAttributes? SetPieces { get; set; }
+        public MentalAttributes? Mental { get; set; }
+        public PhysicalAttributes? Physical { get; set; }
     }
 
     public class TechnicalAttributes

@@ -70,6 +70,8 @@ else
 
             foreach (var player in players)
             {
+                if (player.Snapshot == null) continue;
+
                 var analysis = PlayerAnalyzer.Analyze(player.Snapshot);
                 var bestIn = analysis.InPossessionFits.OrderByDescending(r => r.Score).FirstOrDefault();
                 var bestOut = analysis.OutPossessionFits.OrderByDescending(r => r.Score).FirstOrDefault();

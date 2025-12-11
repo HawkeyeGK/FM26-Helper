@@ -79,28 +79,28 @@ namespace FM26_Helper.Shared
             if (player.Technical != null)
             {
                 var prop = typeof(TechnicalAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int)prop.GetValue(player.Technical);
+                if (prop != null) return (int?)prop.GetValue(player.Technical) ?? 0;
             }
 
             // Check Mental
             if (player.Mental != null)
             {
                 var prop = typeof(MentalAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int)prop.GetValue(player.Mental);
+                if (prop != null) return (int?)prop.GetValue(player.Mental) ?? 0;
             }
 
             // Check Physical
             if (player.Physical != null)
             {
                 var prop = typeof(PhysicalAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int)prop.GetValue(player.Physical);
+                if (prop != null) return (int?)prop.GetValue(player.Physical) ?? 0;
             }
 
             // Check SetPieces
             if (player.SetPieces != null)
             {
                 var prop = typeof(SetPieceAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int)prop.GetValue(player.SetPieces);
+                if (prop != null) return (int?)prop.GetValue(player.SetPieces) ?? 0;
             }
 
             return 0;
