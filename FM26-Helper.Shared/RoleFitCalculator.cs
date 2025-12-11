@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text.Json;
 
 namespace FM26_Helper.Shared
@@ -10,10 +9,61 @@ namespace FM26_Helper.Shared
     public static class RoleFitCalculator
     {
         private static List<RoleDefinition> _cachedRoles = new();
+        
+        // The "Magic Map" - replaces slow Reflection with instant lookups
+        private static readonly Dictionary<string, Func<PlayerSnapshot, int>> _attributeMap = new(StringComparer.OrdinalIgnoreCase);
 
         static RoleFitCalculator()
         {
             LoadRoles();
+            InitializeAttributeMap();
+        }
+
+        private static void InitializeAttributeMap()
+        {
+            // --- Technical ---
+            _attributeMap["Crossing"] = p => p.Technical?.Crossing ?? 0;
+            _attributeMap["Dribbling"] = p => p.Technical?.Dribbling ?? 0;
+            _attributeMap["Finishing"] = p => p.Technical?.Finishing ?? 0;
+            _attributeMap["FirstTouch"] = p => p.Technical?.FirstTouch ?? 0;
+            _attributeMap["Heading"] = p => p.Technical?.Heading ?? 0;
+            _attributeMap["LongShots"] = p => p.Technical?.LongShots ?? 0;
+            _attributeMap["Marking"] = p => p.Technical?.Marking ?? 0;
+            _attributeMap["Passing"] = p => p.Technical?.Passing ?? 0;
+            _attributeMap["Tackling"] = p => p.Technical?.Tackling ?? 0;
+            _attributeMap["Technique"] = p => p.Technical?.Technique ?? 0;
+
+            // --- Set Pieces ---
+            _attributeMap["Corners"] = p => p.SetPieces?.Corners ?? 0;
+            _attributeMap["FreeKickTaking"] = p => p.SetPieces?.FreeKickTaking ?? 0;
+            _attributeMap["LongThrows"] = p => p.SetPieces?.LongThrows ?? 0;
+            _attributeMap["PenaltyTaking"] = p => p.SetPieces?.PenaltyTaking ?? 0;
+
+            // --- Mental ---
+            _attributeMap["Aggression"] = p => p.Mental?.Aggression ?? 0;
+            _attributeMap["Anticipation"] = p => p.Mental?.Anticipation ?? 0;
+            _attributeMap["Bravery"] = p => p.Mental?.Bravery ?? 0;
+            _attributeMap["Composure"] = p => p.Mental?.Composure ?? 0;
+            _attributeMap["Concentration"] = p => p.Mental?.Concentration ?? 0;
+            _attributeMap["Decisions"] = p => p.Mental?.Decisions ?? 0;
+            _attributeMap["Determination"] = p => p.Mental?.Determination ?? 0;
+            _attributeMap["Flair"] = p => p.Mental?.Flair ?? 0;
+            _attributeMap["Leadership"] = p => p.Mental?.Leadership ?? 0;
+            _attributeMap["OffTheBall"] = p => p.Mental?.OffTheBall ?? 0;
+            _attributeMap["Positioning"] = p => p.Mental?.Positioning ?? 0;
+            _attributeMap["Teamwork"] = p => p.Mental?.Teamwork ?? 0;
+            _attributeMap["Vision"] = p => p.Mental?.Vision ?? 0;
+            _attributeMap["WorkRate"] = p => p.Mental?.WorkRate ?? 0;
+
+            // --- Physical ---
+            _attributeMap["Acceleration"] = p => p.Physical?.Acceleration ?? 0;
+            _attributeMap["Agility"] = p => p.Physical?.Agility ?? 0;
+            _attributeMap["Balance"] = p => p.Physical?.Balance ?? 0;
+            _attributeMap["JumpingReach"] = p => p.Physical?.JumpingReach ?? 0;
+            _attributeMap["NaturalFitness"] = p => p.Physical?.NaturalFitness ?? 0;
+            _attributeMap["Pace"] = p => p.Physical?.Pace ?? 0;
+            _attributeMap["Stamina"] = p => p.Physical?.Stamina ?? 0;
+            _attributeMap["Strength"] = p => p.Physical?.Strength ?? 0;
         }
 
         private static void LoadRoles()
@@ -35,6 +85,8 @@ namespace FM26_Helper.Shared
 
         public static List<RoleFitResult> Calculate(PlayerSnapshot player, string phase)
         {
+            if (player == null) return new List<RoleFitResult>();
+
             var results = new List<RoleFitResult>();
             var roles = _cachedRoles.Where(r => r.Phase.Equals(phase, StringComparison.OrdinalIgnoreCase));
 
@@ -48,6 +100,7 @@ namespace FM26_Helper.Shared
                     var attributeName = weight.Key;
                     var weightValue = weight.Value;
 
+                    // O(1) Lookup instead of Reflection
                     var attributeValue = GetAttributeValue(player, attributeName);
 
                     totalWeightedScore += attributeValue * weightValue;
@@ -73,36 +126,11 @@ namespace FM26_Helper.Shared
 
         private static int GetAttributeValue(PlayerSnapshot player, string attributeName)
         {
-            if (player == null) return 0;
-
-            // Check Technical
-            if (player.Technical != null)
+            if (_attributeMap.TryGetValue(attributeName, out var selector))
             {
-                var prop = typeof(TechnicalAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int?)prop.GetValue(player.Technical) ?? 0;
+                return selector(player);
             }
-
-            // Check Mental
-            if (player.Mental != null)
-            {
-                var prop = typeof(MentalAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int?)prop.GetValue(player.Mental) ?? 0;
-            }
-
-            // Check Physical
-            if (player.Physical != null)
-            {
-                var prop = typeof(PhysicalAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int?)prop.GetValue(player.Physical) ?? 0;
-            }
-
-            // Check SetPieces
-            if (player.SetPieces != null)
-            {
-                var prop = typeof(SetPieceAttributes).GetProperty(attributeName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (prop != null) return (int?)prop.GetValue(player.SetPieces) ?? 0;
-            }
-
+            // If the attribute name in JSON doesn't match anything in our map, return 0 (safe fallback)
             return 0;
         }
     }
