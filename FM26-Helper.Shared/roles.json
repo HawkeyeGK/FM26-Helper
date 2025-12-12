@@ -137,13 +137,6 @@
     "Name": "Winger",
     "Category": "Wing",
     "Phase": "InPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "inpossession-wing-inside-winger",
-    "Name": "Inside Winger",
-    "Category": "Wing",
-    "Phase": "InPossession",
     "Weights": {
       "Crossing": 3,
       "Dribbling": 3,
@@ -163,8 +156,8 @@
     }
   },
   {
-    "Id": "inpossession-wing-wide-forward",
-    "Name": "Wide Forward",
+    "Id": "inpossession-wing-inside-winger",
+    "Name": "Inside Winger",
     "Category": "Wing",
     "Phase": "InPossession",
     "Weights": {
@@ -189,8 +182,8 @@
     }
   },
   {
-    "Id": "inpossession-wing-playmaking-winger",
-    "Name": "Playmaking Winger",
+    "Id": "inpossession-wing-wide-forward",
+    "Name": "Wide Forward",
     "Category": "Wing",
     "Phase": "InPossession",
     "Weights": {
@@ -213,8 +206,8 @@
     }
   },
   {
-    "Id": "inpossession-wing-inside-forward",
-    "Name": "Inside Forward",
+    "Id": "inpossession-wing-playmaking-winger",
+    "Name": "Playmaking Winger",
     "Category": "Wing",
     "Phase": "InPossession",
     "Weights": {
@@ -238,9 +231,9 @@
     }
   },
   {
-    "Id": "inpossession-attacking-midfield-channel-midfielder",
-    "Name": "Channel Midfielder",
-    "Category": "Attacking Midfield",
+    "Id": "inpossession-wing-inside-forward",
+    "Name": "Inside Forward",
+    "Category": "Wing",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -264,32 +257,8 @@
     }
   },
   {
-    "Id": "inpossession-attacking-midfield-advanced-playmaker",
-    "Name": "Advanced Playmaker",
-    "Category": "Attacking Midfield",
-    "Phase": "InPossession",
-    "Weights": {
-      "Crossing": 3,
-      "Dribbling": 2,
-      "FirstTouch": 2,
-      "Passing": 3,
-      "Technique": 3,
-      "Anticipation": 2,
-      "Composure": 2,
-      "Decisions": 3,
-      "OffTheBall": 2,
-      "Teamwork": 3,
-      "Vision": 2,
-      "WorkRate": 3,
-      "Acceleration": 2,
-      "Agility": 2,
-      "Pace": 3,
-      "Stamina": 3
-    }
-  },
-  {
-    "Id": "inpossession-attacking-midfield-second-striker",
-    "Name": "Second Striker",
+    "Id": "inpossession-attacking-midfield-channel-midfielder",
+    "Name": "Channel Midfielder",
     "Category": "Attacking Midfield",
     "Phase": "InPossession",
     "Weights": {
@@ -313,8 +282,8 @@
     }
   },
   {
-    "Id": "inpossession-attacking-midfield-free-role",
-    "Name": "Free Role",
+    "Id": "inpossession-attacking-midfield-advanced-playmaker",
+    "Name": "Advanced Playmaker",
     "Category": "Attacking Midfield",
     "Phase": "InPossession",
     "Weights": {
@@ -335,8 +304,8 @@
     }
   },
   {
-    "Id": "inpossession-attacking-midfield-attacking-midfielder",
-    "Name": "Attacking Midfielder",
+    "Id": "inpossession-attacking-midfield-second-striker",
+    "Name": "Second Striker",
     "Category": "Attacking Midfield",
     "Phase": "InPossession",
     "Weights": {
@@ -359,9 +328,9 @@
     }
   },
   {
-    "Id": "inpossession-outside-midfield-winger",
-    "Name": "Winger",
-    "Category": "Outside Midfield",
+    "Id": "inpossession-attacking-midfield-free-role",
+    "Name": "Free Role",
+    "Category": "Attacking Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -382,9 +351,9 @@
     }
   },
   {
-    "Id": "inpossession-outside-midfield-wide-midfielder",
-    "Name": "Wide Midfielder",
-    "Category": "Outside Midfield",
+    "Id": "inpossession-attacking-midfield-attacking-midfielder",
+    "Name": "Attacking Midfielder",
+    "Category": "Attacking Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -405,15 +374,8 @@
     }
   },
   {
-    "Id": "inpossession-outside-midfield-inside-winger",
-    "Name": "Inside Winger",
-    "Category": "Outside Midfield",
-    "Phase": "InPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "inpossession-outside-midfield-playmaking-winger",
-    "Name": "Playmaking Winger",
+    "Id": "inpossession-outside-midfield-winger",
+    "Name": "Winger",
     "Category": "Outside Midfield",
     "Phase": "InPossession",
     "Weights": {
@@ -435,9 +397,9 @@
     }
   },
   {
-    "Id": "inpossession-central-midfield-advanced-playmaker",
-    "Name": "Advanced Playmaker",
-    "Category": "Central Midfield",
+    "Id": "inpossession-outside-midfield-wide-midfielder",
+    "Name": "Wide Midfielder",
+    "Category": "Outside Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 3,
@@ -459,9 +421,9 @@
     }
   },
   {
-    "Id": "inpossession-central-midfield-midfield-playmaker",
-    "Name": "Midfield Playmaker",
-    "Category": "Central Midfield",
+    "Id": "inpossession-outside-midfield-inside-winger",
+    "Name": "Inside Winger",
+    "Category": "Outside Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -485,9 +447,9 @@
     }
   },
   {
-    "Id": "inpossession-central-midfield-attacking-midfielder",
-    "Name": "Attacking Midfielder",
-    "Category": "Central Midfield",
+    "Id": "inpossession-outside-midfield-playmaking-winger",
+    "Name": "Playmaking Winger",
+    "Category": "Outside Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 3,
@@ -510,15 +472,8 @@
     }
   },
   {
-    "Id": "inpossession-central-midfield-channel-midfielder",
-    "Name": "Channel Midfielder",
-    "Category": "Central Midfield",
-    "Phase": "InPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "inpossession-central-midfield-central-midfielder",
-    "Name": "Central Midfielder",
+    "Id": "inpossession-central-midfield-advanced-playmaker",
+    "Name": "Advanced Playmaker",
     "Category": "Central Midfield",
     "Phase": "InPossession",
     "Weights": {
@@ -539,8 +494,8 @@
     }
   },
   {
-    "Id": "inpossession-central-midfield-wide-central-midfielder",
-    "Name": "Wide Central Midfielder",
+    "Id": "inpossession-central-midfield-midfield-playmaker",
+    "Name": "Midfield Playmaker",
     "Category": "Central Midfield",
     "Phase": "InPossession",
     "Weights": {
@@ -563,9 +518,9 @@
     }
   },
   {
-    "Id": "inpossession-defensive-midfield-defensive-midfielder",
-    "Name": "Defensive Midfielder",
-    "Category": "Defensive Midfield",
+    "Id": "inpossession-central-midfield-attacking-midfielder",
+    "Name": "Attacking Midfielder",
+    "Category": "Central Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -586,9 +541,9 @@
     }
   },
   {
-    "Id": "inpossession-defensive-midfield-deep-lying-playmaker",
-    "Name": "Deep-Lying Playmaker",
-    "Category": "Defensive Midfield",
+    "Id": "inpossession-central-midfield-channel-midfielder",
+    "Name": "Channel Midfielder",
+    "Category": "Central Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 3,
@@ -611,9 +566,9 @@
     }
   },
   {
-    "Id": "inpossession-defensive-midfield-half-back",
-    "Name": "Half Back",
-    "Category": "Defensive Midfield",
+    "Id": "inpossession-central-midfield-central-midfielder",
+    "Name": "Central Midfielder",
+    "Category": "Central Midfield",
     "Phase": "InPossession",
     "Weights": {
       "FirstTouch": 3,
@@ -633,9 +588,9 @@
     }
   },
   {
-    "Id": "inpossession-defensive-midfield-box-to-box-playmaker",
-    "Name": "Box-To-Box Playmaker",
-    "Category": "Defensive Midfield",
+    "Id": "inpossession-central-midfield-wide-central-midfielder",
+    "Name": "Wide Central Midfielder",
+    "Category": "Central Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -658,16 +613,9 @@
     }
   },
   {
-    "Id": "inpossession-defensive-midfield-box-to-box-midfielder",
-    "Name": "Box-To-Box Midfielder",
+    "Id": "inpossession-defensive-midfield-defensive-midfielder",
+    "Name": "Defensive Midfielder",
     "Category": "Defensive Midfield",
-    "Phase": "InPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "inpossession-wing-back-wing-back",
-    "Name": "Wing-Back",
-    "Category": "Wing Back",
     "Phase": "InPossession",
     "Weights": {
       "FirstTouch": 2,
@@ -687,9 +635,9 @@
     }
   },
   {
-    "Id": "inpossession-wing-back-advanced-wing-back",
-    "Name": "Advanced Wing-Back",
-    "Category": "Wing Back",
+    "Id": "inpossession-defensive-midfield-deep-lying-playmaker",
+    "Name": "Deep-Lying Playmaker",
+    "Category": "Defensive Midfield",
     "Phase": "InPossession",
     "Weights": {
       "FirstTouch": 3,
@@ -711,9 +659,9 @@
     }
   },
   {
-    "Id": "inpossession-wing-back-playmaking-wing-back",
-    "Name": "Playmaking Wing-Back",
-    "Category": "Wing Back",
+    "Id": "inpossession-defensive-midfield-half-back",
+    "Name": "Half Back",
+    "Category": "Defensive Midfield",
     "Phase": "InPossession",
     "Weights": {
       "FirstTouch": 2,
@@ -735,9 +683,9 @@
     }
   },
   {
-    "Id": "inpossession-wing-back-inside-wing-back",
-    "Name": "Inside Wing-Back",
-    "Category": "Wing Back",
+    "Id": "inpossession-defensive-midfield-box-to-box-playmaker",
+    "Name": "Box-To-Box Playmaker",
+    "Category": "Defensive Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Dribbling": 2,
@@ -763,9 +711,9 @@
     }
   },
   {
-    "Id": "inpossession-full-back-wing-back",
-    "Name": "Wing-Back",
-    "Category": "Full Back",
+    "Id": "inpossession-defensive-midfield-box-to-box-midfielder",
+    "Name": "Box-To-Box Midfielder",
+    "Category": "Defensive Midfield",
     "Phase": "InPossession",
     "Weights": {
       "Dribbling": 2,
@@ -791,16 +739,9 @@
     }
   },
   {
-    "Id": "inpossession-full-back-playmaking-wing-back",
-    "Name": "Playmaking Wing-Back",
-    "Category": "Full Back",
-    "Phase": "InPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "inpossession-full-back-inside-wing-back",
-    "Name": "Inside Wing-Back",
-    "Category": "Full Back",
+    "Id": "inpossession-wing-back-wing-back",
+    "Name": "Wing-Back",
+    "Category": "Wing Back",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 3,
@@ -825,9 +766,9 @@
     }
   },
   {
-    "Id": "inpossession-full-back-full-back",
-    "Name": "Full-Back",
-    "Category": "Full Back",
+    "Id": "inpossession-wing-back-advanced-wing-back",
+    "Name": "Advanced Wing-Back",
+    "Category": "Wing Back",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 3,
@@ -852,9 +793,9 @@
     }
   },
   {
-    "Id": "inpossession-full-back-inside-full-back",
-    "Name": "Inside Full-Back",
-    "Category": "Full Back",
+    "Id": "inpossession-wing-back-playmaking-wing-back",
+    "Name": "Playmaking Wing-Back",
+    "Category": "Wing Back",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -880,9 +821,9 @@
     }
   },
   {
-    "Id": "inpossession-center-back-center-back",
-    "Name": "Center-Back",
-    "Category": "Center Back",
+    "Id": "inpossession-wing-back-inside-wing-back",
+    "Name": "Inside Wing-Back",
+    "Category": "Wing Back",
     "Phase": "InPossession",
     "Weights": {
       "FirstTouch": 2,
@@ -904,16 +845,9 @@
     }
   },
   {
-    "Id": "inpossession-center-back-ball-playing-center-back",
-    "Name": "Ball-Playing Center-Back",
-    "Category": "Center Back",
-    "Phase": "InPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "inpossession-center-back-wide-center-back",
-    "Name": "Wide Center-Back",
-    "Category": "Center Back",
+    "Id": "inpossession-full-back-wing-back",
+    "Name": "Wing-Back",
+    "Category": "Full Back",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 3,
@@ -938,9 +872,9 @@
     }
   },
   {
-    "Id": "inpossession-center-back-no-nonsense-center-back",
-    "Name": "No-Nonsense Center-Back",
-    "Category": "Center Back",
+    "Id": "inpossession-full-back-playmaking-wing-back",
+    "Name": "Playmaking Wing-Back",
+    "Category": "Full Back",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -965,9 +899,9 @@
     }
   },
   {
-    "Id": "inpossession-center-back-advanced-center-back",
-    "Name": "Advanced Center-Back",
-    "Category": "Center Back",
+    "Id": "inpossession-full-back-inside-wing-back",
+    "Name": "Inside Wing-Back",
+    "Category": "Full Back",
     "Phase": "InPossession",
     "Weights": {
       "FirstTouch": 2,
@@ -989,9 +923,9 @@
     }
   },
   {
-    "Id": "inpossession-center-back-overlapping-center-back",
-    "Name": "Overlapping Center-Back",
-    "Category": "Center Back",
+    "Id": "inpossession-full-back-full-back",
+    "Name": "Full-Back",
+    "Category": "Full Back",
     "Phase": "InPossession",
     "Weights": {
       "Crossing": 2,
@@ -1010,6 +944,180 @@
       "Agility": 2,
       "Pace": 2,
       "Stamina": 2
+    }
+  },
+  {
+    "Id": "inpossession-full-back-inside-full-back",
+    "Name": "Inside Full-Back",
+    "Category": "Full Back",
+    "Phase": "InPossession",
+    "Weights": {
+      "Dribbling": 2,
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Composure": 2,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "WorkRate": 2,
+      "Acceleration": 2,
+      "Agility": 2,
+      "JumpingReach": 2,
+      "Pace": 2,
+      "Stamina": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "inpossession-center-back-center-back",
+    "Name": "Center-Back",
+    "Category": "Center Back",
+    "Phase": "InPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Composure": 2,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "inpossession-center-back-ball-playing-center-back",
+    "Name": "Ball-Playing Center-Back",
+    "Category": "Center Back",
+    "Phase": "InPossession",
+    "Weights": {
+      "FirstTouch": 2,
+      "Heading": 3,
+      "Marking": 3,
+      "Passing": 3,
+      "Tackling": 3,
+      "Technique": 2,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Composure": 3,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "Vision": 2,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "inpossession-center-back-wide-center-back",
+    "Name": "Wide Center-Back",
+    "Category": "Center Back",
+    "Phase": "InPossession",
+    "Weights": {
+      "Dribbling": 2,
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Composure": 2,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "WorkRate": 2,
+      "Acceleration": 2,
+      "Agility": 2,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Stamina": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "inpossession-center-back-no-nonsense-center-back",
+    "Name": "No-Nonsense Center-Back",
+    "Category": "Center Back",
+    "Phase": "InPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Concentration": 2,
+      "Positioning": 3,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "inpossession-center-back-advanced-center-back",
+    "Name": "Advanced Center-Back",
+    "Category": "Center Back",
+    "Phase": "InPossession",
+    "Weights": {
+      "Dribbling": 2,
+      "FirstTouch": 2,
+      "Heading": 3,
+      "Marking": 3,
+      "Passing": 3,
+      "Tackling": 3,
+      "Technique": 3,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Composure": 3,
+      "Concentration": 2,
+      "Decisions": 3,
+      "Positioning": 3,
+      "Teamwork": 3,
+      "Vision": 2,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Stamina": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "inpossession-center-back-overlapping-center-back",
+    "Name": "Overlapping Center-Back",
+    "Category": "Center Back",
+    "Phase": "InPossession",
+    "Weights": {
+      "Crossing": 3,
+      "Dribbling": 2,
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Technique": 2,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Composure": 2,
+      "Concentration": 2,
+      "Decisions": 2,
+      "OffTheBall": 2,
+      "Positioning": 2,
+      "WorkRate": 3,
+      "Acceleration": 2,
+      "Agility": 2,
+      "JumpingReach": 3,
+      "Pace": 3,
+      "Stamina": 3,
+      "Strength": 3
     }
   },
   {
@@ -1085,13 +1193,6 @@
     "Name": "Winger",
     "Category": "Wing",
     "Phase": "OutPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "outpossession-wing-inside-outlet-winger",
-    "Name": "Inside Outlet Winger",
-    "Category": "Wing",
-    "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
       "Aggression": 2,
@@ -1107,8 +1208,8 @@
     }
   },
   {
-    "Id": "outpossession-wing-wide-outlet-winger",
-    "Name": "Wide Outlet Winger",
+    "Id": "outpossession-wing-inside-outlet-winger",
+    "Name": "Inside Outlet Winger",
     "Category": "Wing",
     "Phase": "OutPossession",
     "Weights": {
@@ -1126,8 +1227,8 @@
     }
   },
   {
-    "Id": "outpossession-wing-tracking-winger",
-    "Name": "Tracking Winger",
+    "Id": "outpossession-wing-wide-outlet-winger",
+    "Name": "Wide Outlet Winger",
     "Category": "Wing",
     "Phase": "OutPossession",
     "Weights": {
@@ -1146,9 +1247,9 @@
     }
   },
   {
-    "Id": "outpossession-attacking-midfield-attacking-midfielder",
-    "Name": "Attacking Midfielder",
-    "Category": "Attacking Midfield",
+    "Id": "outpossession-wing-tracking-winger",
+    "Name": "Tracking Winger",
+    "Category": "Wing",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
@@ -1167,15 +1268,8 @@
     }
   },
   {
-    "Id": "outpossession-attacking-midfield-splitting-outlet-attacking-midfielder",
-    "Name": "Splitting Outlet Attacking Midfielder",
-    "Category": "Attacking Midfield",
-    "Phase": "OutPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "outpossession-attacking-midfield-central-outlet-attacking-midfielder",
-    "Name": "Central Outlet Attacking Midfielder",
+    "Id": "outpossession-attacking-midfield-attacking-midfielder",
+    "Name": "Attacking Midfielder",
     "Category": "Attacking Midfield",
     "Phase": "OutPossession",
     "Weights": {
@@ -1190,8 +1284,8 @@
     }
   },
   {
-    "Id": "outpossession-attacking-midfield-tracking-attacking-midfielder",
-    "Name": "Tracking Attacking Midfielder",
+    "Id": "outpossession-attacking-midfield-splitting-outlet-attacking-midfielder",
+    "Name": "Splitting Outlet Attacking Midfielder",
     "Category": "Attacking Midfield",
     "Phase": "OutPossession",
     "Weights": {
@@ -1208,9 +1302,9 @@
     }
   },
   {
-    "Id": "outpossession-outside-midfield-wide-midfielder",
-    "Name": "Wide Midfielder",
-    "Category": "Outside Midfield",
+    "Id": "outpossession-attacking-midfield-central-outlet-attacking-midfielder",
+    "Name": "Central Outlet Attacking Midfielder",
+    "Category": "Attacking Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "FirstTouch": 2,
@@ -1226,9 +1320,9 @@
     }
   },
   {
-    "Id": "outpossession-outside-midfield-wide-outlet-wide-midfielder",
-    "Name": "Wide Outlet Wide Midfielder",
-    "Category": "Outside Midfield",
+    "Id": "outpossession-attacking-midfield-tracking-attacking-midfielder",
+    "Name": "Tracking Attacking Midfielder",
+    "Category": "Attacking Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
@@ -1243,16 +1337,9 @@
     }
   },
   {
-    "Id": "outpossession-outside-midfield-tracking-wide-midfielder",
-    "Name": "Tracking Wide Midfielder",
+    "Id": "outpossession-outside-midfield-wide-midfielder",
+    "Name": "Wide Midfielder",
     "Category": "Outside Midfield",
-    "Phase": "OutPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "outpossession-central-midfield-pressing-central-midfielder",
-    "Name": "Pressing Central Midfielder",
-    "Category": "Central Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Aggression": 2,
@@ -1268,9 +1355,9 @@
     }
   },
   {
-    "Id": "outpossession-central-midfield-central-midfielder",
-    "Name": "Central Midfielder",
-    "Category": "Central Midfield",
+    "Id": "outpossession-outside-midfield-wide-outlet-wide-midfielder",
+    "Name": "Wide Outlet Wide Midfielder",
+    "Category": "Outside Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Dribbling": 2,
@@ -1288,9 +1375,9 @@
     }
   },
   {
-    "Id": "outpossession-central-midfield-wide-covering-central-midfielder",
-    "Name": "Wide Covering Central Midfielder",
-    "Category": "Central Midfield",
+    "Id": "outpossession-outside-midfield-tracking-wide-midfielder",
+    "Name": "Tracking Wide Midfielder",
+    "Category": "Outside Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
@@ -1309,16 +1396,9 @@
     }
   },
   {
-    "Id": "outpossession-central-midfield-screening-central-midfielder",
-    "Name": "Screening Central Midfielder",
+    "Id": "outpossession-central-midfield-pressing-central-midfielder",
+    "Name": "Pressing Central Midfielder",
     "Category": "Central Midfield",
-    "Phase": "OutPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "outpossession-defensive-midfield-screening-defensive-midfielder",
-    "Name": "Screening Defensive Midfielder",
-    "Category": "Defensive Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
@@ -1336,9 +1416,9 @@
     }
   },
   {
-    "Id": "outpossession-defensive-midfield-defensive-midfielder",
-    "Name": "Defensive Midfielder",
-    "Category": "Defensive Midfield",
+    "Id": "outpossession-central-midfield-central-midfielder",
+    "Name": "Central Midfielder",
+    "Category": "Central Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
@@ -1354,9 +1434,9 @@
     }
   },
   {
-    "Id": "outpossession-defensive-midfield-dropping-defensive-midfielder",
-    "Name": "Dropping Defensive Midfielder",
-    "Category": "Defensive Midfield",
+    "Id": "outpossession-central-midfield-wide-covering-central-midfielder",
+    "Name": "Wide Covering Central Midfielder",
+    "Category": "Central Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1374,9 +1454,9 @@
     }
   },
   {
-    "Id": "outpossession-defensive-midfield-pressing-defensive-midfielder",
-    "Name": "Pressing Defensive Midfielder",
-    "Category": "Defensive Midfield",
+    "Id": "outpossession-central-midfield-screening-central-midfielder",
+    "Name": "Screening Central Midfielder",
+    "Category": "Central Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1391,16 +1471,9 @@
     }
   },
   {
-    "Id": "outpossession-defensive-midfield-wide-covering-defensive-midfielder",
-    "Name": "Wide Covering Defensive Midfielder",
+    "Id": "outpossession-defensive-midfield-screening-defensive-midfielder",
+    "Name": "Screening Defensive Midfielder",
     "Category": "Defensive Midfield",
-    "Phase": "OutPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "outpossession-wing-back-wing-back",
-    "Name": "Wing-Back",
-    "Category": "Wing Back",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1416,9 +1489,9 @@
     }
   },
   {
-    "Id": "outpossession-wing-back-pressing-wing-back",
-    "Name": "Pressing Wing-Back",
-    "Category": "Wing Back",
+    "Id": "outpossession-defensive-midfield-defensive-midfielder",
+    "Name": "Defensive Midfielder",
+    "Category": "Defensive Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
@@ -1435,9 +1508,9 @@
     }
   },
   {
-    "Id": "outpossession-wing-back-holding-wing-back",
-    "Name": "Holding Wing-Back",
-    "Category": "Wing Back",
+    "Id": "outpossession-defensive-midfield-dropping-defensive-midfielder",
+    "Name": "Dropping Defensive Midfielder",
+    "Category": "Defensive Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1455,9 +1528,9 @@
     }
   },
   {
-    "Id": "outpossession-full-back-full-back",
-    "Name": "Full-Back",
-    "Category": "Full Back",
+    "Id": "outpossession-defensive-midfield-pressing-defensive-midfielder",
+    "Name": "Pressing Defensive Midfielder",
+    "Category": "Defensive Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 2,
@@ -1475,9 +1548,9 @@
     }
   },
   {
-    "Id": "outpossession-full-back-pressing-full-back",
-    "Name": "Pressing Full-Back",
-    "Category": "Full Back",
+    "Id": "outpossession-defensive-midfield-wide-covering-defensive-midfielder",
+    "Name": "Wide Covering Defensive Midfielder",
+    "Category": "Defensive Midfield",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1496,16 +1569,9 @@
     }
   },
   {
-    "Id": "outpossession-full-back-holding-full-back",
-    "Name": "Holding Full-Back",
-    "Category": "Full Back",
-    "Phase": "OutPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "outpossession-center-back-center-back",
-    "Name": "Center-Back",
-    "Category": "Center Back",
+    "Id": "outpossession-wing-back-wing-back",
+    "Name": "Wing-Back",
+    "Category": "Wing Back",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1524,9 +1590,9 @@
     }
   },
   {
-    "Id": "outpossession-center-back-covering-center-back",
-    "Name": "Covering Center-Back",
-    "Category": "Center Back",
+    "Id": "outpossession-wing-back-pressing-wing-back",
+    "Name": "Pressing Wing-Back",
+    "Category": "Wing Back",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1546,9 +1612,9 @@
     }
   },
   {
-    "Id": "outpossession-center-back-stopping-center-back",
-    "Name": "Stopping Center-Back",
-    "Category": "Center Back",
+    "Id": "outpossession-wing-back-holding-wing-back",
+    "Name": "Holding Wing-Back",
+    "Category": "Wing Back",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1565,16 +1631,9 @@
     }
   },
   {
-    "Id": "outpossession-center-back-wide-center-back",
-    "Name": "Wide Center-Back",
-    "Category": "Center Back",
-    "Phase": "OutPossession",
-    "Weights": {}
-  },
-  {
-    "Id": "outpossession-center-back-covering-wide-center-back",
-    "Name": "Covering Wide Center-Back",
-    "Category": "Center Back",
+    "Id": "outpossession-full-back-full-back",
+    "Name": "Full-Back",
+    "Category": "Full Back",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1590,9 +1649,9 @@
     }
   },
   {
-    "Id": "outpossession-center-back-stopping-wide-center-back",
-    "Name": "Stopping Wide Center-Back",
-    "Category": "Center Back",
+    "Id": "outpossession-full-back-pressing-full-back",
+    "Name": "Pressing Full-Back",
+    "Category": "Full Back",
     "Phase": "OutPossession",
     "Weights": {
       "Marking": 3,
@@ -1609,6 +1668,149 @@
       "Agility": 2,
       "Pace": 2,
       "Stamina": 2
+    }
+  },
+  {
+    "Id": "outpossession-full-back-holding-full-back",
+    "Name": "Holding Full-Back",
+    "Category": "Full Back",
+    "Phase": "OutPossession",
+    "Weights": {
+      "Marking": 3,
+      "Tackling": 3,
+      "Anticipation": 3,
+      "Concentration": 3,
+      "Decisions": 3,
+      "Positioning": 3,
+      "Teamwork": 2,
+      "Acceleration": 3,
+      "Agility": 2,
+      "Pace": 2
+    }
+  },
+  {
+    "Id": "outpossession-center-back-center-back",
+    "Name": "Center-Back",
+    "Category": "Center Back",
+    "Phase": "OutPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Composure": 2,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "outpossession-center-back-covering-center-back",
+    "Name": "Covering Center-Back",
+    "Category": "Center Back",
+    "Phase": "OutPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Concentration": 3,
+      "Decisions": 3,
+      "Positioning": 3,
+      "Acceleration": 2,
+      "JumpingReach": 3,
+      "Pace": 3,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "outpossession-center-back-stopping-center-back",
+    "Name": "Stopping Center-Back",
+    "Category": "Center Back",
+    "Phase": "OutPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 3,
+      "Anticipation": 3,
+      "Bravery": 3,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "outpossession-center-back-wide-center-back",
+    "Name": "Wide Center-Back",
+    "Category": "Center Back",
+    "Phase": "OutPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 2,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "Acceleration": 2,
+      "Agility": 2,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "outpossession-center-back-covering-wide-center-back",
+    "Name": "Covering Wide Center-Back",
+    "Category": "Center Back",
+    "Phase": "OutPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Anticipation": 3,
+      "Bravery": 2,
+      "Decisions": 3,
+      "Positioning": 3,
+      "Acceleration": 2,
+      "Agility": 2,
+      "JumpingReach": 3,
+      "Pace": 3,
+      "Strength": 3
+    }
+  },
+  {
+    "Id": "outpossession-center-back-stopping-wide-center-back",
+    "Name": "Stopping Wide Center-Back",
+    "Category": "Center Back",
+    "Phase": "OutPossession",
+    "Weights": {
+      "Heading": 3,
+      "Marking": 3,
+      "Tackling": 3,
+      "Aggression": 3,
+      "Anticipation": 3,
+      "Bravery": 3,
+      "Concentration": 2,
+      "Decisions": 2,
+      "Positioning": 3,
+      "Acceleration": 2,
+      "Agility": 2,
+      "JumpingReach": 3,
+      "Pace": 2,
+      "Strength": 3
     }
   }
 ]
