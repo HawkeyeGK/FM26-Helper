@@ -174,3 +174,43 @@ h1:focus {
     font-weight: 800;
     color: #ff6b6b;
 }
+
+/* --- Score Heatmap --- */
+.score-elite {
+    background-color: #4ade80;
+    color: #000;
+    font-weight: bold;
+}
+
+/* 90+ */
+.score-good {
+    background-color: #a3e635;
+    color: #000;
+}
+
+/* 80-89 */
+.score-decent {
+    background-color: #facc15;
+    color: #000;
+}
+
+/* 70-79 */
+.score-ok {
+    background-color: #fbbf24;
+    color: #000;
+}
+
+/* 60-69 */
+.score-poor {
+    color: #aaa;
+}
+
+/* < 60 */
+
+/* Compact table cells for the matrix */
+.matrix-cell {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.25rem !important;
+    font-size: 0.9rem;
+}
