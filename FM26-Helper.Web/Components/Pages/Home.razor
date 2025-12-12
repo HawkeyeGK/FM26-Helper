@@ -24,12 +24,12 @@ else
             </TemplateColumn>
             <PropertyColumn Property="@(p => p.Age)" Sortable="true" />
             <TemplateColumn Title="Personality" SortBy="@personalitySort">
-                <span class="@GetPersonalityClass(context.Personality)">
+                <span class="@context.PersonalityCssClass">
                     @context.Personality
                 </span>
             </TemplateColumn>
             <TemplateColumn Title="Playing Time" SortBy="@playingTimeSort">
-                <span class="@GetPlayingTimeClass(context.PlayingTime)">
+                <span class="@context.PlayingTimeCssClass">
                     @context.PlayingTime
                 </span>
             </TemplateColumn>
@@ -38,7 +38,7 @@ else
             <PropertyColumn Property="@(p => p.TransferValueHigh)" Title="Max Value" Sortable="true" Format="C0" />
             <PropertyColumn Property="@(p => p.Wage)" Sortable="true" Format="C0" />
             <TemplateColumn Title="Expires" Sortable="true" SortBy="@contractSort">
-                <span class="@GetContractClass(context.ContractExpiry, context.GameDate)">
+                <span class="@context.ContractCssClass">
                     @context.ContractExpiry
                 </span>
             </TemplateColumn>
@@ -71,101 +71,12 @@ else
     private static readonly GridSort<RosterItemViewModel> personalitySort = 
         GridSort<RosterItemViewModel>.ByAscending(p => ScoutingConstants.GetPersonalityRank(p.Personality));
 
-    private static string GetPersonalityClass(string personality)
-    {
-        var rank = ScoutingConstants.GetPersonalityRank(personality);
-
-        // Tier 1 (Rank 1-9): Elite
-        if (rank < 10) return "fm-status-elite";
-        
-        // Tier 2 (Rank 10-19): Strong
-        if (rank >= 10 && rank < 20) return "fm-status-strong";
-
-        // Tier 4+ (Rank 40+): Avoid/Toxic
-        if (rank >= 40) return "fm-status-warn";
-        
-        return "";
-    }
-
-    // Helper to handle mixed formats (Full dates OR just Years)
-    private static DateTime? ParseSmartDate(string input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return null;
-
-        // Case 1: Input is just a year (e.g., "2026")
-        if (int.TryParse(input, out var year) && year > 1900 && year < 2100)
-        {
-            // Default to June 30th of that year (standard contract expiry)
-            return new DateTime(year, 6, 30);
-        }
-
-        // Case 2: Input is a full date (e.g., "7/14/2025")
-        if (DateTime.TryParse(input, out var date))
-        {
-            return date;
-        }
-
-        return null;
-    }
-
-    // Helper to parse date for sorting (so "1/1/2025" doesn't come before "30/6/2024")
-    private static DateTime GetContractDate(string dateString)
-    {
-        return ParseSmartDate(dateString) ?? DateTime.MaxValue;
-    }
-
-    // Sort definition referencing the helper
-    private static readonly GridSort<RosterItemViewModel> contractSort = 
-        GridSort<RosterItemViewModel>.ByAscending(p => GetContractDate(p.ContractExpiry));
-
-    private static string GetContractClass(string contractExpiry, DateTime? gameDate)
-    {
-        if (string.IsNullOrWhiteSpace(contractExpiry) || gameDate == null) return "";
-        var contractDate = ParseSmartDate(contractExpiry);
-        
-        if (contractDate.HasValue)
-        {
-            var yearsRemaining = contractDate.Value.Year - gameDate.Value.Year;
-            
-            // Expiring this year (Critical)
-            if (yearsRemaining <= 0) return "fm-status-critical";
-            
-            // Expiring next year (Urgent)
-            if (yearsRemaining == 1) return "fm-status-strong";
-        }
-
-        return "";
-    }
-
-    private static string GetPlayingTimeClass(string playingTime)
-    {
-        if (string.IsNullOrEmpty(playingTime)) return "";
-        var pt = playingTime.Trim();
-
-        if (pt.Equals("Star Player", StringComparison.OrdinalIgnoreCase)) return "fm-status-gold";
-        if (pt.Equals("Important Player", StringComparison.OrdinalIgnoreCase)) return "fm-status-elite";
-        if (pt.Equals("Regular Starter", StringComparison.OrdinalIgnoreCase)) return "fm-status-strong";
-        
-        // "Loan" usually indicates a player loaned OUT or IN
-        if (pt.Contains("Loan", StringComparison.OrdinalIgnoreCase)) return "fm-status-warn";
-
-        return "";
-    }
-
     private static readonly GridSort<RosterItemViewModel> playingTimeSort = 
         GridSort<RosterItemViewModel>.ByAscending(p => ScoutingConstants.GetPlayingTimeRank(p.PlayingTime));
 
-    private static int ParseCurrency(string? input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return 0;
-        
-        // Remove everything that isn't a number (or a minus sign)
-        var cleanString = new string(input.Where(c => char.IsDigit(c) || c == '-').ToArray());
-        
-        return int.TryParse(cleanString, out var value) ? value : 0;
-    }
-
-
+    // Sort definition referencing the helper
+    private static readonly GridSort<RosterItemViewModel> contractSort = 
+        GridSort<RosterItemViewModel>.ByAscending(p => RosterItemViewModel.ParseSmartDate(p.ContractExpiry) ?? DateTime.MaxValue);
 
     protected override void OnInitialized()
     {
@@ -173,50 +84,7 @@ else
         if (!string.IsNullOrEmpty(path))
         {
             var players = Repository.Load(path);
-            rosterItems = new List<RosterItemViewModel>();
-
-            foreach (var player in players)
-            {
-                if (player.Snapshot == null) continue;
-
-                var analysis = PlayerAnalyzer.Analyze(player.Snapshot);
-                var bestIn = analysis.InPossessionFits.OrderByDescending(r => r.Score).FirstOrDefault();
-                var bestOut = analysis.OutPossessionFits.OrderByDescending(r => r.Score).FirstOrDefault();
-
-                // Logic: Split by last space to find surname. Handle mononyms (single names) gracefully.
-                var rawName = player.PlayerName.Trim();
-                var lastSpaceIndex = rawName.LastIndexOf(' ');
-                var sortName = (lastSpaceIndex > 0)
-                    ? $"{rawName.Substring(lastSpaceIndex + 1)}, {rawName.Substring(0, lastSpaceIndex)}"
-                    : rawName;
-
-                rosterItems.Add(new RosterItemViewModel
-                {
-                    Name = player.PlayerName,
-                    SortName = sortName,
-                    Age = player.Snapshot?.Age ?? 0,
-                    GameDate = ParseSmartDate(player.Snapshot?.GameDate),
-                    Personality = player.Snapshot?.Personality ?? "",
-                    PlayingTime = player.Snapshot?.PlayingTime ?? "",
-                    TransferValueLow = player.Snapshot?.TransferValueLow ?? 0,
-                    TransferValueHigh = player.Snapshot?.TransferValueHigh ?? 0,
-                    Wage = ParseCurrency(player.Snapshot?.Wage),
-                    ContractExpiry = player.Snapshot?.ContractExpiry ?? "",
-
-                    Speed = analysis.Speed,
-                    DNA = analysis.DNA,
-                    Gegenpress = analysis.Gegenpress,
-                    AggressiveDefense = analysis.AggressiveDefense,
-                    CautiousDefense = analysis.CautiousDefense,
-                    DirectAttack = analysis.DirectAttack,
-                    PossessionAttack = analysis.PossessionAttack,
-
-                    BestInPossessionRole = bestIn?.RoleName ?? "N/A",
-                    BestInPossessionScore = bestIn?.Score ?? 0,
-                    BestOutPossessionRole = bestOut?.RoleName ?? "N/A",
-                    BestOutPossessionScore = bestOut?.Score ?? 0
-                });
-            }
+            rosterItems = players.Select(RosterItemViewModel.FromPlayer).ToList();
         }
         else
         {
