@@ -13,6 +13,15 @@ namespace FM26_Helper.Shared
         // The "Magic Map" - replaces slow Reflection with instant lookups
         private static readonly Dictionary<string, Func<PlayerSnapshot, int>> _attributeMap = new(StringComparer.OrdinalIgnoreCase);
 
+        // Expose valid attributes for the Editor UI
+        public static IEnumerable<string> ValidAttributeNames => _attributeMap.Keys.OrderBy(k => k);
+
+        // Allow the Service to update the engine at runtime
+        public static void SetCache(List<RoleDefinition> roles)
+        {
+            _cachedRoles = roles;
+        }
+
         static RoleFitCalculator()
         {
             LoadRoles();
