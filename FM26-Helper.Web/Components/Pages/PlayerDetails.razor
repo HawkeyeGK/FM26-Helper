@@ -1,0 +1,111 @@
+@page "/player/{Name}"
+@using FM26_Helper.Web.Models
+@inject PlayerDetailsViewModel VM
+
+<PageTitle>Player Details: @Name</PageTitle>
+
+@if (VM.Player == null)
+{
+    @if (VM.HeaderData == null) 
+    {
+        <div class="alert alert-warning">
+            <h4>Player Not Found</h4>
+            <p>Could not find player with name: <strong>@Name</strong></p>
+            <a href="/" class="btn btn-primary">Return to Roster</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">Loading...</div>
+    }
+}
+else
+{
+    var h = VM.HeaderData;
+    
+    <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">@h.Name</h3>
+            <span class="badge bg-light text-dark fs-6">@h.Age years old</span>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <!-- Column 1: Personal Info -->
+                <div class="col-md-3">
+                    <h5 class="card-title text-info">Profile</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-transparent d-flex justify-content-between">
+                            <span>Personality:</span> 
+                            <span class="@h.PersonalityCssClass text-end">@h.Personality</span>
+                        </li>
+                        <li class="list-group-item bg-transparent d-flex justify-content-between">
+                            <span>Contract:</span> 
+                            <span class="@h.ContractCssClass text-end">@h.ContractExpiry</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Status -->
+                 <div class="col-md-3">
+                    <h5 class="card-title text-info">Status</h5>
+                    <ul class="list-group list-group-flush">
+                         <li class="list-group-item bg-transparent d-flex justify-content-between">
+                            <span>Playing Time:</span> 
+                            <span class="@h.PlayingTimeCssClass text-end">@h.PlayingTime</span>
+                        </li>
+                        <li class="list-group-item bg-transparent d-flex justify-content-between">
+                            <span>Wage:</span> <strong>@h.Wage.ToString("C0")</strong>
+                        </li>
+                         <li class="list-group-item bg-transparent d-flex justify-content-between">
+                            <span>Value:</span> 
+                            <span class="text-end">@(((h.TransferValueLow + h.TransferValueHigh)/2).ToString("C0"))</span>
+                        </li>
+                    </ul>
+                </div>
+
+                 <!-- Column 3: Physical -->
+                <div class="col-md-3">
+                    <h5 class="card-title text-info">Physical</h5>
+                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-transparent d-flex justify-content-between">
+                            <span>Height:</span> <strong>@VM.Player.HeightFeet' @VM.Player.HeightInches"</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                 <!-- Column 4: Best Roles -->
+                <div class="col-md-3">
+                    <h5 class="card-title text-info">Best Roles</h5>
+                    <div class="mb-2">
+                        <small class="text-muted d-block">In Possession</small>
+                        <span class="badge bg-success w-100 p-2">
+                            @h.BestInPossessionRole
+                            <span class="badge bg-light text-dark ms-2">@h.BestInPossessionScore.ToString("F1")</span>
+                        </span>
+                    </div>
+                     <div>
+                        <small class="text-muted d-block">Out Possession</small>
+                         <span class="badge bg-danger w-100 p-2">
+                            @h.BestOutPossessionRole
+                             <span class="badge bg-light text-dark ms-2">@h.BestOutPossessionScore.ToString("F1")</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-secondary text-center">
+        Phase 2: Detailed Attributes, Radar Charts, and Growth Tracking coming soon...
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string Name { get; set; } = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        VM.LoadPlayer(Name);
+    }
+}
