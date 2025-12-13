@@ -38,11 +38,7 @@ namespace FM26_Helper.Web.Models
         public List<string> MatrixHeaders { get; private set; } = new();
         public List<List<RoleFitResult?>> MatrixRows { get; private set; } = new();
 
-        private static readonly List<string> CategoryOrder = new()
-        {
-            "Center Back", "Full Back", "Wing Back", "Defensive Midfield", "Central Midfield",
-            "Attacking Midfield", "Outside Midfield", "Wing", "Striker"
-        };
+
 
 
         public void BuildMatrix()
@@ -61,11 +57,7 @@ namespace FM26_Helper.Web.Models
             // Sort by index in CategoryOrder. If not found (-1), put at end (int.MaxValue)
             var groups = source
                 .GroupBy(r => r.Category)
-                .OrderBy(g => 
-                {
-                    var index = CategoryOrder.IndexOf(g.Key);
-                    return index == -1 ? int.MaxValue : index;
-                })
+                .OrderBy(g => ScoutingConstants.GetCategoryRank(g.Key))
                 .ThenBy(g => g.Key) // Secondary sort for unknown categories
                 .ToList();
 

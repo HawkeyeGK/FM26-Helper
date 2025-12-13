@@ -98,7 +98,7 @@ else
         // 2. Build Columns
         var template = analyzedPlayers.First().Analysis.InPossessionFits;
         columns = template
-            .OrderBy(r => r.Category) 
+            .OrderBy(r => ScoutingConstants.GetCategoryRank(r.Category)) 
             .ThenBy(r => r.RoleName)
             .Select(r => new MatrixColumn($"{r.Category} - {r.RoleName}", r.RoleName, r.Category))
             .ToList();

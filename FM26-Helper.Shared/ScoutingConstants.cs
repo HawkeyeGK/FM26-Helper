@@ -60,6 +60,12 @@ namespace FM26_Helper.Shared
             { "Slack", 70 }
         };
 
+        private static readonly List<string> _categoryOrder = new()
+        {
+            "Center Back", "Full Back", "Wing Back", "Defensive Midfield", "Central Midfield",
+            "Attacking Midfield", "Outside Midfield", "Wing", "Striker"
+        };
+
         // Define the logical order for Playing Time (Lower number = Higher Status)
         private static readonly Dictionary<string, int> _playingTimeRank = new(StringComparer.OrdinalIgnoreCase)
         {
@@ -83,6 +89,12 @@ namespace FM26_Helper.Shared
         {
             if (string.IsNullOrWhiteSpace(playingTime)) return 99; // Default
             return _playingTimeRank.TryGetValue(playingTime, out var rank) ? rank : 99;
+        }
+
+        public static int GetCategoryRank(string category)
+        {
+            var index = _categoryOrder.IndexOf(category);
+            return index == -1 ? 99 : index;
         }
     }
 }
