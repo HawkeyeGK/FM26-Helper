@@ -15,6 +15,14 @@ namespace FM26_Helper.Web.Models
         public PlayerAnalysis? Analysis { get; private set; }
         public RosterItemViewModel? HeaderData { get; private set; }
 
+        public RoleFitResult? BestInPossession => Analysis?.InPossessionFits
+            .OrderByDescending(r => r.Score)
+            .FirstOrDefault();
+
+        public RoleFitResult? BestOutPossession => Analysis?.OutPossessionFits
+            .OrderByDescending(r => r.Score)
+            .FirstOrDefault();
+
         public PlayerDetailsViewModel(RosterRepository rosterRepository, IConfiguration configuration)
         {
             _rosterRepository = rosterRepository;

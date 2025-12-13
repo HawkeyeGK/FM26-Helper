@@ -88,17 +88,31 @@ else
                     <h5 class="card-title text-info">Best Roles</h5>
                     <div class="mb-2">
                         <small class="text-muted d-block">In Possession</small>
-                        <span class="badge bg-success w-100 p-2">
-                            @h.BestInPossessionRole
-                            <span class="badge bg-light text-dark ms-2">@h.BestInPossessionScore.ToString("F1")</span>
-                        </span>
+                        <div class="p-2 w-100 rounded text-center border border-secondary" 
+                             style="@(VM.GlobalInPossessionScale?.GetColorStyle(VM.BestInPossession?.Score ?? 0) ?? "background-color: #444; color: #fff;")">
+                            @if (VM.BestInPossession != null)
+                            {
+                                <span class="fw-bold">@VM.BestInPossession.Category - @VM.BestInPossession.RoleName - @VM.BestInPossession.Score.ToString("F1")</span>
+                            }
+                            else
+                            {
+                                <span>N/A</span>
+                            }
+                        </div>
                     </div>
                      <div>
-                        <small class="text-muted d-block">Out Possession</small>
-                         <span class="badge bg-danger w-100 p-2">
-                            @h.BestOutPossessionRole
-                             <span class="badge bg-light text-dark ms-2">@h.BestOutPossessionScore.ToString("F1")</span>
-                        </span>
+                        <small class="text-muted d-block">Out Of Possession</small>
+                         <div class="p-2 w-100 rounded text-center border border-secondary" 
+                              style="@(VM.GlobalOutPossessionScale?.GetColorStyle(VM.BestOutPossession?.Score ?? 0) ?? "background-color: #444; color: #fff;")">
+                            @if (VM.BestOutPossession != null)
+                            {
+                                <span class="fw-bold">@VM.BestOutPossession.Category - @VM.BestOutPossession.RoleName - @VM.BestOutPossession.Score.ToString("F1")</span>
+                            }
+                            else
+                            {
+                                <span>N/A</span>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
