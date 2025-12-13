@@ -100,10 +100,10 @@ else
     <div class="row mb-3">
         <div class="col-12 d-flex justify-content-end">
              <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-success @(IsInPossessionMode ? "active" : "")" @onclick="() => SetMode(true)">
+                <button type="button" class="btn btn-outline-secondary @(IsInPossessionMode ? "active" : "")" @onclick="() => SetMode(true)">
                     In Possession
                 </button>
-                <button type="button" class="btn btn-outline-danger @(!IsInPossessionMode ? "active" : "")" @onclick="() => SetMode(false)">
+                <button type="button" class="btn btn-outline-secondary @(!IsInPossessionMode ? "active" : "")" @onclick="() => SetMode(false)">
                     Out Of Possession
                 </button>
             </div>
